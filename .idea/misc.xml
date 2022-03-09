@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/border.xml" value="0.2765" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_reaction_24.xml" value="0.1235" />
         <entry key="app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.2765" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>

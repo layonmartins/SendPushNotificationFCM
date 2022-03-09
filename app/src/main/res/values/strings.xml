@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SendPushNotificationFCM</string>
+
+    <string name="default_notification_channel_name">DefaultPriorityChannel</string>
+    <string name="high_notification_channel_name">HighPriorityChannel</string>
+
+    <string name="default_notification_channel_id">default_notification_channel_id</string>
+    <string name="high_notification_channel_id">high_notification_channel_id</string>
 </resources>

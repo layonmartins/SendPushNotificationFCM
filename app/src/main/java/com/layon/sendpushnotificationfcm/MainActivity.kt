@@ -16,6 +16,7 @@ import com.layon.sendpushnotificationfcm.model.Notification
 import com.layon.sendpushnotificationfcm.model.NotificationData
 import com.layon.sendpushnotificationfcm.model.PushNotification
 import com.layon.sendpushnotificationfcm.repository.RetrofitInstance
+import com.layon.sendpushnotificationfcm.utils.NotificationUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -79,6 +80,9 @@ class MainActivity : AppCompatActivity() {
             copy(binding.textViewMyFCMToken.text.toString())
             showToast("fcm token copied")
         }
+
+        //create the notification channel if not exists
+        NotificationUtil.createChannels(this)
     }
 
     private fun sendNotification(notification: PushNotification) =
