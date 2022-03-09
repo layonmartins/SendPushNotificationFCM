@@ -10,7 +10,7 @@
 <img src="screenvideo.gif" width="80%">
 
 * To find the server key, go to the Firebase console:
-<img src="screen2.png" width="40%">
+<img src="screen2.png" width="80%">
 
 * To access the device fcm registration token:
 * https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token
