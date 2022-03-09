@@ -1,4 +1,4 @@
-package com.layon.sendpushnotificationfcm
+package com.layon.sendpushnotificationfcm.service
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,22 +10,25 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.layon.sendpushnotificationfcm.MainActivity
+import com.layon.sendpushnotificationfcm.R
 import kotlin.random.Random
 
 private const val CHANNEL_ID = "sendpushnotificationfcm_channel"
 
 class FirebaseMessagingService : FirebaseMessagingService() {
 
-    override fun onMessageReceived(message: RemoteMessage) {
-        super.onMessageReceived(message)
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        super.onMessageReceived(remoteMessage)
 
-        //test
-        Log.d("layon.f", "message: $message")
-        Log.d("layon.f", "message.from: ${message.from}")
-        Log.d("layon.f", "message.data: ${message.data}")
-        Log.d("layon.f", "message.notification: ${message.notification?.title} ${message.notification?.body}")
+        Log.d("layon.f", "message: $remoteMessage")
+        Log.d("layon.f", "message.from: ${remoteMessage.from}")
+        Log.d("layon.f", "message.data: ${remoteMessage.data}")
+        Log.d("layon.f", "message.notification: ${remoteMessage.notification?.title} ${remoteMessage.notification?.body}")
 
-        createNotification(message.data["title"].toString(), message.data["message"].toString())
+        remoteMessage.notification?.let { notification ->
+            createNotification(notification.title.toString(), notification.body.toString())
+        }
     }
 
     fun createNotification(title: String, message: String) {

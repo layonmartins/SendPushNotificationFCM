@@ -1,6 +1,6 @@
-package com.layon.sendpushnotificationfcm
+package com.layon.sendpushnotificationfcm.repository
 
-import com.layon.sendpushnotificationfcm.Constants.Companion.BASE_URL
+import com.layon.sendpushnotificationfcm.utils.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

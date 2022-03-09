@@ -1,4 +1,4 @@
-package com.layon.sendpushnotificationfcm
+package com.layon.sendpushnotificationfcm.utils
 
 class Constants {
 

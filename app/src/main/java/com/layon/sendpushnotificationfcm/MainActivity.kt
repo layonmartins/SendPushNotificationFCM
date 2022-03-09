@@ -10,8 +10,12 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.Gson
-import com.layon.sendpushnotificationfcm.Constants.Companion.CONTENT_TYPE
+import com.layon.sendpushnotificationfcm.utils.Constants.Companion.CONTENT_TYPE
 import com.layon.sendpushnotificationfcm.databinding.ActivityMainBinding
+import com.layon.sendpushnotificationfcm.model.Notification
+import com.layon.sendpushnotificationfcm.model.NotificationData
+import com.layon.sendpushnotificationfcm.model.PushNotification
+import com.layon.sendpushnotificationfcm.repository.RetrofitInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,27 +35,25 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        //get the actual FCM
+        //get the actual FCM token
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(TAG, "Fetching FCM registration token failed", task.exception)
                 return@OnCompleteListener
             }
-
-            // Get new FCM registration token
             val token = task.result
-
             binding.textViewMyFCMToken.text = "$token"
-            Log.d("layon.f", "FcmToken: $token")
         })
 
         FirebaseMessaging.getInstance().subscribeToTopic(TOPIC)
 
         binding.button.setOnClickListener {
-            val title = binding.editTextTextPersonNameTitle.text.toString()
-            val message = binding.editTextTextPersonNameMessage.text.toString()
-            val recipientToken = binding.editTextTextPersonSendToken.text.toString()
-            serverKey = binding.editTextTextPersonServerKey.text.toString()
+            val title = binding.editTextTitle.text.toString()
+            val message = binding.editTextBody.text.toString()
+            val data = binding.editTextData.text.toString()
+            val showPopUp = binding.checkBoxShowPopUp.isChecked
+            val recipientToken = binding.editTextSendToken.text.toString()
+            serverKey = binding.editTextServerKey.text.toString()
 
             if(title.isNotEmpty() && message.isNotEmpty()) {
 
@@ -63,11 +65,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 PushNotification(
-                    NotificationData(title, message),
-                    recipientToken
+                    notification = Notification(title = title, body = message),
+                    data = NotificationData(data = data, showPopUp = showPopUp),
+                    to = recipientToken
                 ).also {
                     sendNotification(it)
-                    showToast("Trying send notification")
+                    showToast("notification sent")
                 }
             }
         }
