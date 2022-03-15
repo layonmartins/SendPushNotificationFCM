@@ -113,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_result.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <value>
             <set />
@@ -128,12 +133,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../weg/android-wemob/app/src/main/java/net/weg/wemob/WemobMainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../weg/android-wemob/commons/src/main/java/net/weg/wemob/commons/services/notification/CreateNotificationService.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../weg/android-wemob/commons/src/main/java/net/weg/wemob/commons/services/notification/WEMOBPushNotificationFCMService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../weg/android-wemob/commons/src/main/res/values-pt-rBR/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../weg/android-wemob/commons/src/main/res/values/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../weg/android-wemob/commons/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../weg/android-wemob/recharge/src/main/res/layout/rfid_status_bar.xml">
           <value>
             <set />
           </value>
